@@ -1,0 +1,197 @@
+/*only for screens bigger than 900px*/
+@media all and (min-width: 900px) {
+
+    .navbar {
+        --color1: #dcdcdc;
+        --color2: #f0f0f0;
+        --margin-small-1: 5px;
+
+        background: var(--color1);
+        height: 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar__logo {
+        display: flex;
+        margin: var(--margin-small-1);
+    }
+
+    .navbar__logo__image {
+        width: 30px;
+    }
+
+    .navbar__list {
+        list-style: none;
+        display: flex;
+    }
+
+    .navbar__list-item {
+        margin: var(--margin-small-1);
+        padding: var(--margin-small-1) calc(var(--margin-small-1) + 5px);
+        border: 1px solid rgb(251, 251, 251);
+        text-align: center;
+        text-transform: capitalize;
+        font-family: sans-serif;
+    }
+
+    .navbar__list-item:hover {
+        background-color: var(--color2);
+    }
+
+    .hasSubList {
+        position: relative;
+    }
+
+    .hasSubList::after {
+        content: "⌄";
+        position: relative;
+        bottom: 5px;
+        right: -10px;
+        margin: var(--margin-small-1) 0;
+        padding: var(--margin-small-1);
+    }
+
+    .subList {
+        background-color: var(--color1);
+        flex-direction: column;
+        position: absolute;
+        min-width: 150px;
+        left: 0;
+        padding: 0;
+        z-index: 1;
+        display: none;
+    }
+
+    .subList .subList {
+        left: auto;
+        top: -6px;
+        right: -100%;
+    }
+
+    .subList .navbar__list-item {
+        text-align: left;
+    }
+
+    .hasSubList:hover > .subList:first-of-type {
+        display: block;
+    }
+
+}
+
+/*for screens smaller than 900px*/
+@media all and (max-width: 900px) {
+
+
+    .navbar {
+        --color1: #dcdcdc;
+        --color2: #f0f0f0;
+        --margin-small-1: 5px;
+
+        background: var(--color1);
+        /*height: 35px;*/
+        display: block;
+
+        position: relative;
+        padding: 3px 0;
+    }
+
+    .navbar__logo {
+        display: flex;
+        margin: var(--margin-small-1);
+        position: relative;
+        left: 0;
+    }
+
+    .navbar__logo__image {
+        width: 30px;
+    }
+
+    .hamburger{
+        width: 15px;
+        height: 3px;
+        background-color: black;
+        margin-right: var(--margin-small-1);
+
+        position: absolute;
+        right: 0;
+        top: 20px;
+        /*transform: translateY(-50%);*/
+    }
+
+    .hamburger::after{
+        content: "";
+        display: block;
+        position: relative;
+        background-color: inherit;
+        width: 15px;
+        height: 3px;
+        bottom: 8px;
+    }
+    .hamburger::before{
+        content: "";
+        display: block;
+        position: relative;
+        background-color: inherit;
+        width: 15px;
+        height: 3px;
+        top: 5px;
+    }
+
+    .navbar__list {
+        display: none;
+    }
+
+    #hamburger-checkbox:checked + .navbar__list{
+        display: block;
+    }
+
+    /*-----*/
+    .navbar__list {
+        list-style: none;
+    }
+
+    .navbar__list-item {
+        margin: var(--margin-small-1);
+        padding: var(--margin-small-1) calc(var(--margin-small-1) + 5px);
+        border: 1px solid rgb(251, 251, 251);
+        text-align: left;
+        text-transform: capitalize;
+        font-family: sans-serif;
+    }
+
+    .navbar__list-item:hover {
+        background-color: var(--color2);
+    }
+
+    .hasSubList {
+        position: relative;
+    }
+
+    .hasSubList::after {
+        content: "⌄";
+        position: absolute;
+        top: -10px;
+        right: 0;
+        margin: var(--margin-small-1) 0;
+        padding: var(--margin-small-1);
+    }
+
+    .subList {
+        background-color: var(--color1);
+        flex-direction: column;
+        min-width: 150px;
+        padding: var(--margin-small-1);
+        display: none;
+    }
+
+    .subList .navbar__list-item {
+        text-align: left;
+    }
+
+    .hasSubList:hover > .subList:first-of-type {
+        display: block;
+    }
+
+}
